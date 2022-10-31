@@ -1,0 +1,147 @@
+{
+    "env": {
+        "browser": true,
+        "es2021": true,
+        "jest/globals": true
+    },
+    "settings": {
+        "react": {
+            "version": "detect"
+        }
+    },
+    "extends": [
+        "standard-with-typescript",
+        "eslint:recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:react/recommended",
+        "plugin:sonarjs/recommended",
+        "plugin:jsx-a11y/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+        "project": "tsconfig.json",
+        "tsconfigRootDir": "./"
+    },
+    "plugins": [
+        "jest",
+        "react",
+        "react-hooks",
+        "@typescript-eslint",
+        "sonarjs",
+        "jsx-a11y"
+    ],
+    "rules": {
+        "@typescript-eslint/strict-boolean-expressions": "off",
+        "semi": "off",
+        "@typescript-eslint/semi": [
+            "warn",
+            "always"
+        ],
+        "no-underscore-dangle": "off",
+        "no-shadow": "off",
+        "@typescript-eslint/no-shadow": "error",
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": "error",
+        "no-spaced-func": "off",
+        "func-call-spacing": "off",
+        "space-before-function-paren": "error",
+        "@typescript-eslint/func-call-spacing": [
+            "error",
+            "never"
+        ],
+        "@typescript-eslint/prefer-namespace-keyword": "off",
+        "radix": "off",
+        "react/jsx-fragments": "off",
+        "import/no-unresolved": "off",
+        "import/prefer-default-export": "off",
+        "import/extensions": "off",
+        "import/no-extraneous-dependencies": "off",
+        "no-use-before-define": "off",
+        "react/jsx-filename-extension": [
+            1,
+            {
+                "extensions": [
+                    ".jsx",
+                    ".tsx",
+                    ".ts",
+                    ".json"
+                ]
+            }
+        ],
+        "react/jsx-props-no-spreading": "off",
+        "no-restricted-exports": "off",
+        "max-len": [
+            "error",
+            {
+                "code": 140,
+                "ignoreComments": true
+            }
+        ],
+        "no-restricted-syntax": 0,
+        "react/require-default-props": "off",
+        "react/function-component-definition": [
+            2,
+            {
+                "namedComponents": "arrow-function",
+                "unnamedComponents": "arrow-function"
+            }
+        ],
+        "import/order": [
+            "error",
+            {
+                "groups": [
+                    "builtin",
+                    "external",
+                    "internal",
+                    "index",
+                    "parent",
+                    "sibling",
+                    "object",
+                    "type"
+                ],
+                "newlines-between": "always-and-inside-groups",
+                "alphabetize": {
+                    "order": "asc"
+                },
+                "pathGroups": [
+                    {
+                        "pattern": "react",
+                        "group": "builtin",
+                        "position": "before"
+                    },
+                    {
+                        "pattern": "@hooks/*",
+                        "group": "internal"
+                    },
+                    {
+                        "pattern": "@utils/*",
+                        "group": "internal"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": [
+                    "react"
+                ]
+            }
+        ]
+    },
+    "overrides": [
+        {
+            "files": ["*.ts", "*.tsx"],
+            "parserOptions": {
+                "project": [
+                    "./tsconfig.json"
+                ]
+            }
+        }
+    ],
+    "globals": {
+        "React": true,
+        "JSX": true
+    }
+}
