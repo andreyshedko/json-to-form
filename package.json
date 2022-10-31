@@ -12,7 +12,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --coverage",
+    "test": "jest --coverage --watch --config jest.config.ts",
     "eject": "react-scripts eject",
     "tsc": "tsc",
     "lint": "yarn tsc && eslint './src/**' --ext .js,.ts,.d.ts,.tsx,.jsx,.json --fix"
@@ -52,6 +52,10 @@
     "eslint-plugin-promise": "^6.0.0",
     "eslint-plugin-react": "^7.31.10",
     "eslint-plugin-sonarjs": "^0.16.0",
+    "jest": "^29.2.2",
+    "jest-environment-jsdom": "^29.2.2",
+    "ts-jest": "^29.0.3",
+    "ts-node": "^10.9.1",
     "typescript": "*"
   }
 }

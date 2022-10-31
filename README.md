@@ -1,5 +1,5 @@
 # Getting Started with Json-To-Form
-
+It producing HTML form from the JSON configuration.
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Json config example
