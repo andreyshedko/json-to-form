@@ -13,7 +13,7 @@
     "noUnusedParameters": true,
     "experimentalDecorators": true,
     "importHelpers": true,
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "module": "ESNext",
     "target": "ESNext",
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
@@ -26,11 +26,7 @@
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "paths": {
-      "@components/*": ["components/*"],
-      "@utils/*": ["src/utils/*"]
-    }
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"],
   "exclude": [
