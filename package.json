@@ -7,12 +7,13 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "recoil": "^0.7.6",
-    "sass": "^1.55.0"
+    "sass": "^1.55.0",
+    "shortid": "^2.2.16"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "jest --coverage --watch --config jest.config.ts",
+    "test": "jest --config jest.config.ts",
     "eject": "react-scripts eject",
     "tsc": "tsc",
     "lint": "yarn tsc && eslint './src/**' --ext .js,.ts,.d.ts,.tsx,.jsx,.json --fix"
@@ -43,6 +44,7 @@
     "@types/node": "^18.11.7",
     "@types/react": "^18.0.24",
     "@types/react-dom": "^18.0.8",
+    "@types/shortid": "^0.0.29",
     "@typescript-eslint/eslint-plugin": "^5.0.0",
     "eslint": "^8.0.1",
     "eslint-config-standard-with-typescript": "^23.0.0",

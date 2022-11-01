@@ -29,7 +29,6 @@
     "allowSyntheticDefaultImports": true,
     "paths": {
       "@components/*": ["components/*"],
-      "@hooks/*": ["src/hooks/*"],
       "@utils/*": ["src/utils/*"]
     }
   },

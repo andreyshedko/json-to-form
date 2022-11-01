@@ -16,6 +16,8 @@ export const JsonInput = (): JSX.Element => {
       style={{ minHeight: '50vh' }}
       className='textarea'
       placeholder='Please enter JSON string to generate form'
+      aria-placeholder='Please enter JSON string to generate form'
+      aria-multiline={true}
 
       onChange={onChange}
       value={text}

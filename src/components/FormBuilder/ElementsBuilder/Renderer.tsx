@@ -1,5 +1,6 @@
 import React, { FC, Suspense } from 'react';
 
+import shortid from 'shortid';
 import { Inputs } from 'types';
 import { getLazyComponent } from 'utils/FormBuilder';
 
@@ -21,7 +22,7 @@ export const Renderer: FC<IRendererProps> = (props: IRendererProps): JSX.Element
                 if ('type' in item) {
                   try {
                     const Input = getLazyComponent(item.type);
-                    element = Input ? <Suspense><Input {...item} /></Suspense> : <Error message='Invalid type' />;
+                    element = Input ? <Suspense><Input key={shortid.generate()} {...item} /></Suspense> : <Error message='Invalid type' />;
                   } catch (err) {
                     element = <Error message={`Can't find this input type: ${item.type as string}`} />;
                   }
