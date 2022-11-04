@@ -8,9 +8,12 @@ export const JsonToFormBuilder = (): JSX.Element => {
     <div className='container'>
       <div className='box'>
         <h1>JSON to form</h1>
-        This application allow to create HTML form from the JSON file. <br />
-        The example of the expected input: <br />
+        <p className='is-size-5'>
+          This application allow to create HTML form from the JSON file. <br />
+          The example of the expected input:
+        </p>
         <img src='./screenshot.png' alt='input example' />
+        <p className='has-text-danger'>Documentation will be available soon.</p>
       </div>
       <div className='columns'>
         <div className='column'>
