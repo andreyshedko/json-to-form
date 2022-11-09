@@ -60,3 +60,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 It produce such output:
 ![title](public/screenshot.png)
 
+## Next Features
+1.  Autocomplete.
+2.  Support JSON schema.
+3.  Create form from uploaded json file.
+

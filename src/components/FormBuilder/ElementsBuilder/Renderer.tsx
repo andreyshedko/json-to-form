@@ -19,7 +19,7 @@ export const Renderer: FC<IRendererProps> = (props: IRendererProps): JSX.Element
             {
               elements.map((item) => {
                 let element = <></>;
-                if ('type' in item) {
+                if (item?.type) {
                   try {
                     const Input = getLazyComponent(item.type);
                     element = Input ? <Suspense><Input key={shortid.generate()} {...item} /></Suspense> : <Error message='Invalid type' />;

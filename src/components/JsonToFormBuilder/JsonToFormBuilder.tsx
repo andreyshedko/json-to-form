@@ -12,7 +12,7 @@ export const JsonToFormBuilder = (): JSX.Element => {
           This application allow to create HTML form from the JSON file. <br />
           The example of the expected input:
         </p>
-        <img src='./screenshot.png' alt='input example' />
+        <img src='https://raw.githubusercontent.com/andreyshedko/veeam/main/public/screenshot.png' alt='input example' />
         <p className='has-text-danger'>Documentation will be available soon.</p>
       </div>
       <div className='columns'>
