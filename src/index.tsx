@@ -1,9 +1,16 @@
 import React from 'react';
 
-import ReactDOM from 'react-dom/client';
-import { RecoilRoot } from 'recoil';
+import { JsonToFormBuilder } from 'components';
 
-import { JsonToFormBuilder } from './components/JsonToFormBuilder';
+import ReactDOM from 'react-dom/client';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from 'react-router-dom';
+
+import { Docs } from './components/Docs/Docs';
+import { Home } from './components/Home';
 
 import './index.scss';
 
@@ -12,8 +19,13 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <RecoilRoot>
-      <JsonToFormBuilder />
-    </RecoilRoot>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />}>
+          <Route path="docs" element={<Docs />} />
+          <Route element={<JsonToFormBuilder />} index />
+        </Route>
+      </Routes>
+    </Router>
   </React.StrictMode>
 );

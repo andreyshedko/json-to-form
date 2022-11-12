@@ -1,11 +1,13 @@
 import React from 'react';
 
+import { RecoilRoot } from 'recoil';
+
 import { JsonInput } from '../JsonInput';
 import { Result } from '../Result';
 
 export const JsonToFormBuilder = (): JSX.Element => {
   return (
-    <div className='container'>
+    <RecoilRoot>
       <div className='box'>
         <h1 className='has-text-info is-size-1'>JSON to form</h1>
         <p className='is-size-6'>
@@ -13,7 +15,6 @@ export const JsonToFormBuilder = (): JSX.Element => {
           The example of the expected input:
         </p>
         <img src='https://raw.githubusercontent.com/andreyshedko/veeam/main/public/screenshot.png' alt='input example' />
-        <p className='has-text-danger'>Documentation will be available soon.</p>
       </div>
       <div className='columns'>
         <div className='column'>
@@ -23,6 +24,6 @@ export const JsonToFormBuilder = (): JSX.Element => {
           <Result />
         </div>
       </div>
-    </div>
+    </RecoilRoot>
   );
 };
