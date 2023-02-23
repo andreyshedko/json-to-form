@@ -18,7 +18,6 @@ export const FormBuilder: FC<IFormBuilderProps> = (props: IFormBuilderProps): JS
   const inputs = items.filter(el => el.type !== 'button');
 
   const copyToClipboard = (): void => {
-    // const type = 'text/html';
     const form = document.getElementById('form-container');
     if (form && 'clipboard' in navigator) {
       // Copy the text inside the text field
