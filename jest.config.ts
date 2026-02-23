@@ -11,6 +11,10 @@ const config: JestConfigWithTsJest = {
   transform: {
     ...tsjPreset.transform,
   },
+  transformIgnorePatterns: ['node_modules/(?!(nanoid)/)'],
+  moduleNameMapper: {
+    '^nanoid$': '<rootDir>/node_modules/nanoid/index.cjs',
+  },
   testRegex: '(/__tests__/.*|(\\.|/)(test|spec))\\.(jsx?|tsx?)$',
   testPathIgnorePatterns: [
     '/node_modules/',
