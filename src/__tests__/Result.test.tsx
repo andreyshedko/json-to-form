@@ -31,4 +31,17 @@ describe("Result", () => {
 
         expect(container.querySelector("form")).toBeInTheDocument();
     });
+
+    test('renders error when invalid JSON is provided', () => {
+        const initializeState = ({ set }: any) => {
+            set(textState, 'invalid json');
+        };
+
+        const { container } = render(
+            <RecoilRoot initializeState={initializeState}>
+                <Result />
+            </RecoilRoot>);
+
+        expect(container.querySelector('.message.is-danger')).toBeInTheDocument();
+    });
 });

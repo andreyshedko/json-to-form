@@ -17,4 +17,20 @@ describe("FormBuilder", () => {
         const View = getLazyComponent('date')
         expect(View).toBeDefined();
     });
+    test('load view button', () => {
+        const View = getLazyComponent('button')
+        expect(View).toBeDefined();
+    });
+    test('load view checkbox', () => {
+        const View = getLazyComponent('checkbox')
+        expect(View).toBeDefined();
+    });
+    test('load view radio', () => {
+        const View = getLazyComponent('radio')
+        expect(View).toBeDefined();
+    });
+    test('returns undefined for unsupported type', () => {
+        const View = getLazyComponent('label' as any)
+        expect(View).toBeUndefined();
+    });
 })
