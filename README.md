@@ -73,8 +73,3 @@ The above configuration produces output like this:
 
 ![Output example](https://raw.githubusercontent.com/andreyshedko/veeam/main/public/screenshot.png)
 
-## Planned Features
-
-1. Autocomplete.
-2. Support JSON schema.
-3. Create form from uploaded JSON file.
