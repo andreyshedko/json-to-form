@@ -2,6 +2,7 @@ import React, { ChangeEvent, KeyboardEvent, useRef, useState } from 'react';
 
 import { useRecoilState } from 'recoil';
 import { textState } from 'state/input';
+import { validateJsonForm } from 'utils/validateJsonForm';
 
 const JSON_SUGGESTIONS = [
   '"title"',
@@ -38,7 +39,42 @@ export const JsonInput = (): JSX.Element => {
   const [text, setText] = useRecoilState(textState);
   const [suggestions, setSuggestions] = useState<string[]>([]);
   const [showSuggestions, setShowSuggestions] = useState(false);
+  const [fileError, setFileError] = useState<string | null>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+
+  const onFileUpload = (event: ChangeEvent<HTMLInputElement>): void => {
+    const file = event.target.files?.[0];
+    if (file === undefined) return;
+
+    if (!file.name.endsWith('.json')) {
+      setFileError('Only .json files are supported');
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const content = e.target?.result as string;
+      try {
+        const parsed: unknown = JSON.parse(content);
+        const validation = validateJsonForm(parsed);
+        if (!validation.valid) {
+          setFileError(validation.error ?? 'Invalid JSON form structure');
+          return;
+        }
+        setText(content);
+        setFileError(null);
+      } catch {
+        setFileError('File does not contain valid JSON');
+      }
+    };
+    reader.readAsText(file);
+
+    // Reset the input so the same file can be re-uploaded if needed
+    if (fileInputRef.current !== null) {
+      fileInputRef.current.value = '';
+    }
+  };
 
   const onChange = (event: ChangeEvent<HTMLTextAreaElement>): void => {
     const { value } = event.target;
@@ -108,6 +144,27 @@ export const JsonInput = (): JSX.Element => {
   return (
     <div style={{ position: 'relative' }}>
       <h1 className='has-text-gray is-size-2'>JSON Input</h1>
+      <div style={{ marginBottom: '8px' }}>
+        <input
+          ref={fileInputRef}
+          type='file'
+          accept='.json'
+          aria-label='Upload JSON file'
+          style={{ display: 'none' }}
+          onChange={onFileUpload}
+        />
+        <button
+          className='button is-info is-small'
+          onClick={() => { fileInputRef.current?.click(); }}
+        >
+          Upload JSON file
+        </button>
+        {fileError !== null && (
+          <p role='alert' className='has-text-danger' style={{ marginTop: '4px' }}>
+            {fileError}
+          </p>
+        )}
+      </div>
       <textarea
         ref={textareaRef}
         style={{ minHeight: '50vh' }}
